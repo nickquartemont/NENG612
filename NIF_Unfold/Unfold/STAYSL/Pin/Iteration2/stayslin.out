@@ -1,0 +1,10 @@
+NIF_RUN Passive 18x snout on TANDM 90-348 KBAS
+  140    6    1    0    1
+   0.00500   9.00000   0.00300   0.00100
+   0.0000000   0   0 1.00000000E+00   1.0000000
+AL27A    4.690E-15 0.079       0.00       0.00        (    )
+ZR902    1.060E-14 0.015       0.00       0.00        (    )
+IN115N   3.388E-15 0.012       0.00       0.00        (    )
+
+  Error:  There was a problem in trying to open one of the input files.
+            Check that all data library files are present.
