@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400 64-bit) (preloaded format=pdflatex 2017.10.20)  19 AUG 2018 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400 64-bit) (preloaded format=pdflatex 2017.10.20)  19 AUG 2018 15:43
 entering extended mode
 **./Quartemont_612.tex
 (Quartemont_612.tex
@@ -341,10 +341,10 @@ Package caption Info: End \AtBeginDocument code.
 <Figures/PileSetup.png, id=1, 194.52675pt x 165.0165pt>
 File: Figures/PileSetup.png Graphic file (type png)
 <use Figures/PileSetup.png>
-Package pdftex.def Info: Figures/PileSetup.png  used on input line 65. on input
- line 65.
-Package pdftex.def Info: Requested size: 252.0pt x 213.78111pt on input line 65
-.
+Package pdftex.def Info: Figures/PileSetup.png  used on input line 106. on inpu
+t line 106.
+Package pdftex.def Info: Requested size: 252.0pt x 213.78111pt on input line 10
+6.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -352,41 +352,42 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Figures/PuBe.png, id=3, 215.6055pt x 167.4255pt>
 File: Figures/PuBe.png Graphic file (type png)
 <use Figures/PuBe.png>
-Package pdftex.def Info: Figures/PuBe.png  used on input line 73. on input line
- 73.
-Package pdftex.def Info: Requested size: 252.0pt x 195.69542pt on input line 73
-.
+Package pdftex.def Info: Figures/PuBe.png  used on input line 117. on input lin
+e 117.
+Package pdftex.def Info: Requested size: 252.0pt x 195.69542pt on input line 11
+7.
 <Figures/PileSpec.png, id=4, 605.64296pt x 437.69154pt>
 File: Figures/PileSpec.png Graphic file (type png)
 <use Figures/PileSpec.png>
-Package pdftex.def Info: Figures/PileSpec.png  used on input line 79. on input 
-line 79.
-Package pdftex.def Info: Requested size: 252.0pt x 182.11278pt on input line 79
-.
+Package pdftex.def Info: Figures/PileSpec.png  used on input line 123. on input
+ line 123.
+Package pdftex.def Info: Requested size: 252.0pt x 182.11278pt on input line 12
+3.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <Figures/NIF.png, id=5, 536.60475pt x 297.5115pt>
 File: Figures/NIF.png Graphic file (type png)
 <use Figures/NIF.png>
-Package pdftex.def Info: Figures/NIF.png  used on input line 91. on input line 
-91.
-Package pdftex.def Info: Requested size: 252.0pt x 139.71693pt on input line 91
-.
+Package pdftex.def Info: Figures/NIF.png  used on input line 139. on input line
+ 139.
+Package pdftex.def Info: Requested size: 252.0pt x 139.71693pt on input line 13
+9.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figures/NIFSRC.png, id=6, 546.6055pt x 390.86873pt>
-File: Figures/NIFSRC.png Graphic file (type png)
-<use Figures/NIFSRC.png>
-Package pdftex.def Info: Figures/NIFSRC.png  used on input line 99. on input li
-ne 99.
-Package pdftex.def Info: Requested size: 252.0pt x 180.20139pt on input line 99
-.
 [1{C:/Users/James/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
+<Figures/NIFSRC.png, id=14, 546.6055pt x 390.86873pt>
+File: Figures/NIFSRC.png Graphic file (type png)
+<use Figures/NIFSRC.png>
+Package pdftex.def Info: Figures/NIFSRC.png  used on input line 150. on input l
+ine 150.
+Package pdftex.def Info: Requested size: 252.0pt x 180.20139pt on input line 15
+0.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -394,23 +395,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 igures/NIF.png>] [3 <./Figures/NIFSRC.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 237.
+               Default added (so using `!tbp') on input line 330.
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 288.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 361.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 288.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 293.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 361.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 366.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 293.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 366.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -418,54 +419,45 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Figures/ECal.png, id=34, 242.1045pt x 217.41225pt>
 File: Figures/ECal.png Graphic file (type png)
 <use Figures/ECal.png>
-Package pdftex.def Info: Figures/ECal.png  used on input line 313. on input lin
-e 313.
-Package pdftex.def Info: Requested size: 252.0pt x 226.30574pt on input line 31
-3.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4]
-<Figures/PeakEZ.png, id=38, 704.6325pt x 473.97075pt>
+Package pdftex.def Info: Figures/ECal.png  used on input line 386. on input lin
+e 386.
+Package pdftex.def Info: Requested size: 252.0pt x 226.30574pt on input line 38
+6.
+[4 <./Figures/ECal.png>]
+<Figures/PeakEZ.png, id=39, 704.6325pt x 473.97075pt>
 File: Figures/PeakEZ.png Graphic file (type png)
 <use Figures/PeakEZ.png>
-Package pdftex.def Info: Figures/PeakEZ.png  used on input line 327. on input l
-ine 327.
-Package pdftex.def Info: Requested size: 252.0pt x 169.50835pt on input line 32
+Package pdftex.def Info: Figures/PeakEZ.png  used on input line 407. on input l
+ine 407.
+Package pdftex.def Info: Requested size: 252.0pt x 169.50835pt on input line 40
 7.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 334.
+               Default added (so using `tbp') on input line 418.
 
-[5 <./Figures/ECal.png> <./Figures/PeakEZ.png>]
+[5 <./Figures/PeakEZ.png>]
 <Figures/PinBothLog.png, id=46, 605.47806pt x 433.8368pt>
 File: Figures/PinBothLog.png Graphic file (type png)
 <use Figures/PinBothLog.png>
-Package pdftex.def Info: Figures/PinBothLog.png  used on input line 382. on inp
-ut line 382.
-Package pdftex.def Info: Requested size: 252.0pt x 180.56187pt on input line 38
-2.
+Package pdftex.def Info: Figures/PinBothLog.png  used on input line 486. on inp
+ut line 486.
+Package pdftex.def Info: Requested size: 252.0pt x 180.56187pt on input line 48
+6.
 <Figures/BaskBothLogZoomed.png, id=47, 605.47806pt x 433.8368pt>
 File: Figures/BaskBothLogZoomed.png Graphic file (type png)
 <use Figures/BaskBothLogZoomed.png>
-Package pdftex.def Info: Figures/BaskBothLogZoomed.png  used on input line 386.
- on input line 386.
-Package pdftex.def Info: Requested size: 252.0pt x 180.56187pt on input line 38
-6.
+Package pdftex.def Info: Figures/BaskBothLogZoomed.png  used on input line 490.
+ on input line 490.
+Package pdftex.def Info: Requested size: 252.0pt x 180.56187pt on input line 49
+0.
 <Figures/KBASBothLog.png, id=48, 598.3956pt x 433.8368pt>
 File: Figures/KBASBothLog.png Graphic file (type png)
 <use Figures/KBASBothLog.png>
-Package pdftex.def Info: Figures/KBASBothLog.png  used on input line 390. on in
-put line 390.
-Package pdftex.def Info: Requested size: 252.0pt x 182.70007pt on input line 39
-0.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package pdftex.def Info: Figures/KBASBothLog.png  used on input line 494. on in
+put line 494.
+Package pdftex.def Info: Requested size: 252.0pt x 182.70007pt on input line 49
+4.
 
 
 LaTeX Warning: Text page 6 contains only floats.
@@ -530,31 +522,35 @@ Missing character: There is no ù in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
- [7] (Quartemont_612.aux) ) 
+ [7] (Quartemont_612.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  4174 strings out of 493348
  65243 string characters out of 3139580
- 244524 words of memory out of 3000000
+ 242524 words of memory out of 3000000
  7646 multiletter control sequences out of 15000+200000
  40681 words of font info for 78 fonts, out of 3000000 for 9000
  1127 hyphenation exceptions out of 8191
- 41i,14n,38p,1618b,284s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r
-.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8
-a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Quartemont_612.pdf (7 pages, 2475274 bytes).
+ 41i,14n,38p,520b,284s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
+es/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Quartemont_612.pdf (7 pages, 2474337 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

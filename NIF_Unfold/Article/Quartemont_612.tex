@@ -37,18 +37,22 @@
 	
 	% This first commit show a technique that makes it easier to edit and see the edits.  If each sentence is it's own line, then the diff between the files will only show lines that changed.  Otherwise, you have to find the change, which may be small, in a para of text.
 	\begin{abstract}
-		\ This paper outlines a foil activation experiment in the Air Force Institute of Technology neutron pile with the purpose of unfolding the neutron flux in stringer 2. 
+		\ This paper outlines a foil activation experiment performed at the Air Force Institute of Technology neutron pile.
+The purpose of the experiment was to measure the neutron flux spectrum in stringer 2 using foil activation unfolding techniques such as STAYSL. 
 Due to facility limitations, the unfolding analysis was conducted on an experiment with a test snout performed at the National Ignition Facility (NIF). 
 Foil activation experiments are an indirect method of measuring an incident neutron flux and are preferred in high flux environments that will damage electronics or for size constraints. 
-Foil activities produced from threshold and non-threshold reactions were analyzed using a high purity germanium detector that resulted in time-corrected activities post-irradiaiton of in the range of 100 Bq to 10 kBq. 
-The NIF experiment utilized aluminum, gold, indium, and zirconium foils varying mass at the pinhole, basket, and kinematic base locations of the snout. 
+Foil activities produced from threshold and non-threshold reactions were analyzed using a high purity germanium detector that resulted in time-corrected activities post-irradiation in the range of 100 Bq to 10 kBq. 
+The NIF experiment utilized aluminum, gold, indium, and zirconium foils of varying mass at the pinhole, basket, and kinematic base locations of the snout. 
 The irradiation planned for the neutron pile also included tungsten and manganese. 
-The incident neutron fluence was unfolded from the activities and nuclear data with a selected NIF initial spectrum and a flat spectrum. 
+The incident neutron fluence was unfolded from the activities and nuclear data with a MCNP simulated NIF initial spectrum and a flat spectrum. 
 The results for the pinhole and basket show varying physical results, while both have p-values under 0.01. 
-The results for the basket do not match intuition and likey requires a better starting spectrum. 
+However, the results for the basket do not match intuition
+% or simulation?
+and likey requires a better starting spectrum. 
 The result for the kinematic base shows a similar result to the pinhole. 
-However, the p-value is near 0.9, which indicates the result is not representative of the activities produced. 
-The kinematic base is the largest change from the initial spectrum and requires a better starting spectrum. 
+However, the p-value is near 0.9, which indicates the result is not likely to be representative of the activities produced. 
+% I thought you were shooting for 0.95 and above?
+The kinematic base is a significant change from the initial source spectrum and requires a better simulated starting spectrum. 
 	\end{abstract}
 	
 	% Note that keywords are not normally used for peerreview papers.
@@ -59,48 +63,55 @@ The kinematic base is the largest change from the initial spectrum and requires 
 	\IEEEpeerreviewmaketitle
 	
 	\section{Introduction}
-	\IEEEPARstart{C}{haracterizing} the energy dependent neutron environment from neutron sources has many application to the nuclear sciences community. 
+	\IEEEPARstart{C}{haracterizing} the energy dependent neutron environment has many applications to the nuclear sciences community. 
 Determining a neutron flux is important for experiments where the neutron flux requires validation or is not well modeled. 
-Neutrons can be detected using a variety of methods, such as Bonner spheres, Long counters, He-3 based detectors, or proton recoil scintillators \cite{Knoll}. 
+Neutrons can be detected using a variety of methods, such as Bonner spheres, long counters, He-3 based detectors, or proton recoil scintillators \cite{Knoll}. 
+% From a spectroscopy persepective, TOF must be mentioned.
 Foil activation experiments can also be performed to acquire an indirect measurement of the incident neutron fluence on a set of activation foils. 
 Activation experiments are essential for testing that requires small geometry to fit in the apparatus or in situations where electronics equipment for higher fidelity measuring techniques will be damaged. 
 	
-	\ This work aims to characterize the neutron spectrum in the Air Force Institute of Technology (AFIT) Building 470 neutron pile constructed in the 1960s, which contains a plutonium-beryllium (PuBe) neutron source\cite{NETF}. 
-Previous studies have accomplished results indicating changes to the neutron source term and modeled levels of fluxes\cite{Bevins,Will}. 
+	\ This work aims to characterize the neutron spectrum in the Air Force Institute of Technology's (AFIT) Building 470 neutron pile constructed in the 1960s, which contains a plutonium-beryllium (PuBe) neutron source \cite{NETF}. 
+Previous studies have accomplished results indicating changes to the neutron source term and modeled the neutron flux at various positions \cite{Bevins,Will}. 
 However, the source characterization is still not entirely known. 
 	
-	\ The neutron source characterization is acquired with a foil activation experiment. 
-The foils are analyzed using a calibrated high purity germanium (HPGe) detector to determine time corrected activities post-irradiation. 
-The HPGe requires calibration for energy and efficiency to back out the foil activities. 
-The incident neutron flux is determined using Pacific Northwest National Laboratory (PNNL) STAYSL, which uses generalized least-square minimization to determine the flux for given foil activities and nuclear data.
+% write in the past tense, since that is when everything occured
+	\ The neutron source characterization was performed with a foil activation experiment. 
+The foils were analyzed using a calibrated high purity germanium (HPGe) detector to determine time corrected activities post-irradiation. 
+The HPGe was calibrated for energy and efficiency to back out the initial foil activities post-irradiation. 
 	
 	\ The pile activation results are not used in the final neutron flux analysis due to issues with the HPGe at AFIT. 
-Instead, this work analyzes an experimental setup at the National Ignition Facility (NIF). 
+Instead, this work analyzed an experimental setup at the National Ignition Facility (NIF). 
 The NIF foil activation experiment was performed on a snout for a shot performed in March 2018\cite{Bogetic}. 
-The goal of the NIF experiment is to characterize the NIF source in the aluminum snout which has applications for exploring  cross-section uncertainties if there are unexpected results. 
+The goal of the NIF experiment was to characterize the NIF source in the aluminum snout which has applications for exploring cross-section uncertainties if there are unexpected results. 
+The incident neutron flux was determined from the foil activation results using Pacific Northwest National Laboratory (PNNL) STAYSL %cite?
+, which uses generalized least-square minimization to determine the flux spectrum for given foil activities and nuclear data.
+
+% Generally, you want to close the first section with a couple of sentences describing the layout of the paper.
 
 	\section{Problem Description}
+% Most of this section is background or theory, not a problem description. Most can be combined with section III.
 	
+% This introduction paragraph needs work.  Use it to introduce the problem, describe the sub sections to follow, and point to further information.
     \ The neutron spectrum characterization requires information from the foil activities. 
 The theory and problem statement contributing the foil activation involves the neutron flux environment, foil activation, HPGe spectroscopy, and neutron flux unfolding. 
 Supporting documentation and work performed is available on Github\cite{Me}. 
 	
 	\subsection{Building 470 Pile Neutron Environment }
-	\ The neutron pile was modeled in MCNP version 6.1 based on previous work to gauge expected activation rates and to determine saturation activities\cite{Will}. 
+	\ The neutron pile was modeled in MCNP version 6.1 %need to always cite the first mention of a code
+based on previous work to gauge expected activation rates and to determine saturation activities\cite{Will}. 
 The setup of foil placement and PuBe source is shown in Figure \ref{fig:pile}. 
-The pile has stringers which can be pulled out to place experiments.
-The stringers have fabricated placements for the source and foils. 
+The pile has stringers with fabricated placements for the source and foils to help ensure repeatability of measurements. 
 	
 	\begin{figure}[h!]
 		\includegraphics[width=\linewidth]{Figures/PileSetup.png}
-		\caption{Activation foil setup for Building 470 irradiation.}
+		\caption{Activation foil setup for Building 470 graphite pile irradiation.}
 		\label{fig:pile}
 	\end{figure}
+% In the figure, I would simplify the top callout to say "PuBe source placed in designated slot one stringer above the foils."
 
-	\ The neutron environment from the PuBe source transported to the stringer 2 location determines the activation rates for the foils. 
-The starting spectrum ends at 11 MeV and peaks near 3.5 MeV. 
-The PuBe source spectrum is shown in Figure \ref{fig:PuBE}. 
-The transported spectrum to stringer 2 is shown in Figure \ref{fig:Spec1}. 
+	\ The starting PuBe neutron spectrum, shown in Figure \ref{fig:PuBE}, ends at 11 MeV and peaks near 3.5 MeV. 
+However, there is significant thermalization of the starting PuBe spectrum by the graphite pile as shown in the simulated stringer 2 spectrum in Figure \ref{fig:Spec1}. 
+The simulated spectrum was used to select activation foils based on the modeled foil activation rates, discussed in Section ???. 
 	
 	\begin{figure}[h!]
 	\includegraphics[width=\linewidth]{Figures/PuBe.png}
@@ -110,73 +121,75 @@ The transported spectrum to stringer 2 is shown in Figure \ref{fig:Spec1}.
 	\vskip 0.25cm
 
 	\includegraphics[width=\linewidth]{Figures/PileSpec.png}
-	\caption{Foil activation neutron flux environment (all statistical errors are under 1.5 percent).}
+	\caption{Foil activation neutron flux spectrum (all statistical errors are under 1.5 percent).}
 	\label{fig:Spec1}
 	\end{figure}
+	% having the same axis would be useful to compare figs 2 and 3
 
-	\ The neutron flux is heavily thermalized compared to the starting spectrum. 
-The selection of activation foils was determined by the modeled foil activation rates, which will be discussed later. 
 	
 	\subsection{NIF Snout Experiment}
 	
 	\ A passive foil activation experiment was performed in 2018 at the NIF. 
-A snout composed of aluminum is mounted to the Target and Diagnostic Manipulator (TANDM) 90-348. 
+A snout composed of aluminum was mounted to the Target and Diagnostic Manipulator (TANDM) 90-348. 
 Three foil activation diagnostic packs of aluminum, zirconium, indium, and gold were placed in the nose cap pinhole (7 cm from source), filter basket (41 cm), and kinematic base (110 cm). 
 The aluminum foil was not used in the pinhole. 
 Figure \ref{fig:NIF} displays the snout with the activation foil sites \cite{Bogetic}. 
 	
 	\begin{figure}[h!]
 		\includegraphics[width=\linewidth]{Figures/NIF.png}
-		\caption{Passive NIF snout foil activation locations.}
+		\caption{Passive NIF snout foil activation locations.  Foils were placed in the nose cap pinhole (7 cm from source), filter basket (41 cm), and kinematic base (110 cm).}
 		\label{fig:NIF}
 	\end{figure}
+%I'd remove the text callout in the figure	
 	
 	\ The NIF source is a deuterium-tritium (DT) capsule which have neutrons at a nominal energy of 14 MeV. 
-The spectrum of neutrons used as a source term is shown in Figure \ref{fig:NIFSRC}. 
+The spectrum of neutrons used as a source term %for what? a simulation? More description of this is needed
+is shown in Figure \ref{fig:NIFSRC}. 
 	
 	\begin{figure}[h!]
 		\includegraphics[width=\linewidth]{Figures/NIFSRC.png}
-		\caption{NIF DT neutron source spectrum.}
+		\caption{A typical NIF D-T neutron source spectrum for high-yield indirect drive shots.}
 		\label{fig:NIFSRC}
 	\end{figure}
 	
 	\subsection{Foil Activaiton}
-	The foils intended for activation produces radioactive isotopes during the 
-	course of irradiation.  
+% This section feelsmore relevant to a lab report or thesis.  For a journal article, you can reference sources for foil constraints and highlight whichever affected you selection process.  You can then show the equuations you used to get the time zero activities, and the corrections applied, from the counts.  For example, you didn't explicitly do a backgroud count to subtract, this was done via fitting, so the equation and description don't match what was done and is more academic in nature.
+
 Foil activation can be used with published 	nuclear data to provide an estimate of the incident flux on the foils by unfolding techniques. 
 The production rate of radioactive isotopes is negated by radioactive decay processes, which place an upper limit on the radioactivity of a foil \cite{Knoll}. 
-The saturated activity ($A_{\infty}$) is equivalent to the reaction rate (R), which is a function of the energy dependent flux ($\phi$), the macroscopic reaction cross-section ($\Sigma$), and the volume of the foil ($V_{foil}$). 
-The energy term (E1) is zero in many cases; however, threshold reactions require the incident neutron to be of higher energy to enable the reaction channel. 
-The saturated activity for a given reaction is given by: 
+The saturated activity, ($A_{\infty}$), for a given reaction is given by: 
 
 % Some of the rest of the article reflects a different thechnique that can also be used, and I left as is when each partial line had its own line number.  This will also directly show the edits made.
 	\begin{equation} \label{eq:InfReactionRate}
-	A_{\infty} = R = \int_{E1}^{E2} \phi(E) \Sigma(E) _{Activation} V_{foil} 
+	A_{\infty} = R = \int_{E1}^{E2} \phi(E) \Sigma(E)_{act} V_{foil} 
 	\:dE 
 	\end{equation}
+	
+\noindent the saturated activity is equivalent to the reaction rate (R), which is a function of the energy dependent flux ($\phi$), the macroscopic reaction cross-section for the activation reaction channel($\Sigma(E)_{act}$), and the volume of the foil ($V_{foil}$). 
+The energy term ($E1$) is zero in many cases; however, threshold reactions require the incident neutron to be of higher energy to enable the reaction channel. 
 	
 	A correction needs to be made in cases where the activation is not sufficient 
 	to fully saturate the foil. At six half-lives a foil will have reached 
 	approximately 98\% of its saturation activity, neglecting spatial and energy 
 	self-shielding effects \cite{Knoll}. The activation of the foil for a given 
-	irradiation time ($t_{irradiation})$ is given as a function of the decay 
+	irradiation time ($t_{i})$ is given as a function of the decay 
 	constant: 
-	
+
+% Some of the subscripts are a bit long, which makes the equations a bit unweildy.  Feel free to modify to something else
 	\begin{equation} \label{eq:ReactionRate}
-	A_{0} = A_{\infty}(1-e^{-\lambda t_{irradiation}}) 
+	A_{0} = A_{\infty}(1-e^{-\lambda t_{i}}) 
 	\end{equation}
 	
 	Experimental measurements also can be corrected to deduce the original activity 
-	of the foil, immediately after irradiation. The measured counts (C) is reduced 
-	by the background counts (B). A factor for the decay time between the end of 
-	irradiaiton and the start of counting ($t_{decay}$) corrects for the 
-	radioactive decay during that timeframe. A similar correction factor based on 
-	the count time ($t_{count}$) provides a correction for decay during counting. 
-	Additionally, the detector efficiency for the given gamma-ray energy 
-	($\epsilon$) 
-	and relative gamma intensity ($I_{\gamma}$) must be taken into account. The 
+	of the foil, immediately after irradiation. The measured counts, $C$, is reduced 
+	by the background counts, $B$. A corrects for the 
+	radioactive decay for the time between the end of 
+	irradiation and the start of counting ($t_{decay}$). A similar correction factor based on 
+	the count time, $t_{count}$ provides a correction for radioactive decay during counting. 
+	Additionally, the detector efficiency for the given gamma-ray energy, $\epsilon$,  
+	and relative gamma intensity, $I_{\gamma}$, must be taken into account. The 
 	gamma intensity may also include a branching ratio if applicable to the decay 
-	mechanism. All corrections included, less shielding effects, provide a 
+	mechanism. All corrections included, less self-shielding effects, provide a 
 	formulation for converting counts to post-irradiation activity as: 
 	
 	\begin{equation} \label{eq:MeasActivity}
@@ -188,17 +201,17 @@ The saturated activity for a given reaction is given by:
 	the half-life of the activation products. In this case, the reaction rate is 
 	much larger than the decay from radiation, so the rate of production of the 
 	radioisotope is driven only by the reaction rate. The time integrated flux, 
-	or neutron fluence ($\Phi$), can be used to determine the total reactions ($R_{total}$)
+	or neutron fluence ($\Phi$), can be used to determine the total reactions, $R_{total}$,
 	over an irradiation period, given by:
 	
 	\begin{equation} \label{eq:NIFrxnRate}
-	R_{total} = \int_{E1}^{E2} \Phi(E) \Sigma(E) _{Activation} V_{foil} 
+	R_{total} = \int_{E1}^{E2} \Phi(E) \Sigma(E) _{act} V_{foil} 
 	\:dE 
 	\end{equation}
+% Is Eq 4 used anywhere?
 	
 	\ The foils selected must meet several requirements for this experiment. 
-The method of foil activation has been studied in-depth in the nuclear sciences and engineering community. 
-A list of the various requirements that are of importance for a neutron activation foil experiment with energies in the range of thermal to approximately 11 MeV is summarized below \cite{Knoll,Luciano2012a,Kuijpers1977}.
+A list of the various requirements that are of importance for a neutron activation foil experiment with energies in the range of thermal to approximately 11 MeV are summarized below \cite{Knoll,Luciano2012a,Kuijpers1977}.
 	
 	\ The reaction neutron cross-section is extremely important for foil 
 	activation, and there are a few key parameters that should be considered. 
@@ -211,17 +224,15 @@ A list of the various requirements that are of importance for a neutron activati
 	neutron flux in that energy region. Alternatively, a threshold reaction, 
 	such as an (n,2n), is important for providing information of the flux at 
 	higher energies. Third, the selected foils for an experiment should cover  
-	the entire energy range of the incident neutron flux. 
-	
-	\ The nuclear data must be well characterized over the neutron 
-	energies. Additionally, the uncertainty in the reaction cross-section and 
-	decay mechanisms must be low to not provide misleading results. 
+	the entire energy range of the incident neutron flux. Finally, the cross-section
+	must be well characterized with low uncertainty over the neutron energy range of 
+	interest.
 	
 	\ The decay constant of the product nuclides is important. The 
 	half-lives applicable for a particular experiment depend on the time 
 	post-irradiation that the foils can be counted. A long lived radioisotope 
 	will be available for counting for longer times, but the activity will be 
-	lowered from the lower decay constant. The opposite being true for short 
+	reduced due to the lower decay constant. The opposite is true for short 
 	half-lives. A half-life on the order of an hour to a few years is in the 
 	right direction; however, the half-life must also be balanced with the 
 	production of the radioisotope to understand the entire picture. 
@@ -232,7 +243,7 @@ A list of the various requirements that are of importance for a neutron activati
 	
 	\ Interfering reaction channels and decay emissions should be avoided. 
 	An example of this is natural copper, which has multiple 511 keV emissions 
-	from different reaction channels. It is not feasible to distinguish these 
+	from different reaction channels. It is difficult to distinguish these 
 	gamma-rays to determine activation in counting. Similar problems arise in 
 	multi-isotope materials that have multiple reactions producing the same 
 	nuclide. For example, a Cadmium-106 (n,$\gamma$) reaction produces the same 
@@ -242,30 +253,29 @@ A list of the various requirements that are of importance for a neutron activati
 	perturbations of the neutron flux. An additional benefit of relatively thin 
 	foils is that the gamma-ray emissions are not significantly attenuated 
 	through self-shielding. The neutron flux should ideally also not be 
-	changing substantially over the foil region. In general adding additional foils helps to improve the unfolding results, as long as the entire foil set remains optically thin to the , \cite{Vagena2018b}. 
+	changing substantially over the foil region. In general adding additional foils helps to improve the unfolding results, as long as the entire foil set remains optically thin  \cite{Vagena2018b}. 
 	
 	\ The decay nature of the product nuclide should be a gamma-ray 
-	emitter. Gamma-ray detection can provide fine energy resolution to 
-	determine activation. The discrete gamma-ray emissions provide a means of 
+	emitter. 
+	% Beta spectroscopy is available as well and something that should be considered for NIF
+	Gamma-ray detection can provide fine energy resolution to 
+	determine activation due to specific reaction channels. The discrete gamma-ray emissions provide a means of 
 	determining the source and magnitude of the the foil activation. The energy 
 	of the gamma is also of importance. Semiconductor detection methods have a 
 	peak intrinsic efficiency near 100 keV with some variance depending on if 
 	it p-type or n-type. 
 	
 	\subsection{HPGe Calibration}
-	HPGe detectors produce an information carrier as an electron-hole pair for every 3 eV of energy deposited in the detector\cite{Leo}.
-Gamma radiation spectroscopy can be used to identify radioactive sources based on the pulse height amplitude produced in the detector for a proportional detector. 
-Gamma radiation interacts with matter though the photoelectric effect, Compton effect, and pair production. 
-Scattered photons have a continuum of energies under the full energy peak (FEP) \cite{Knoll}.
+% You can keep this, but this is a bit basic and not directly needed for the focus of the paper
+% Overall, this can be combined with the similar section in Section III
 	
-	\ An energy calibration curve can be constructed to map channel to incident energy using a least square fitting technique. 
-A linear distribution is appropriate for an HPGe. 
-Non-linearities will may introduce errors up to five percent at lower energies near 100 keV \cite{Knoll}. 
-The FEP centroid can be	used to determine the radioactive source by the emission energy.
+%	\ An energy calibration curve was constructed to map the detection channel, collected charge, to incident photon energy using a least square fitting technique.
+%A linear correlation is expected for an HPGe over a large range of energies, but non-linearities may introduce errors up to five percent at lower energies near 100 keV \cite{Knoll}. 
+%The full energy peak (FEP) centroid can then be	used to determine the radioactive source by the emission energy.
 
-	\ The HPGe efficiency as a function of energy can be calibrated with a known multi-nuclide source and measurements of the experimental setup. 
-The absolute efficiency can be calibrated at a source distance to obtain unknown source activity\cite{Knoll}. 
-The absolute efficiency ($\epsilon_{abs}$) can be obtained by:
+	\ The HPGe efficiency as a function of energy was determined using a known multi-nuclide source and measurements of the experimental setup. 
+The absolute efficiency was calibrated at a source distance to obtain the unknown source activity from the activation foils \cite{Knoll}. 
+The absolute efficiency ($\epsilon_{abs}$) was obtained by:
 	
 	\begin{equation} \label{eq:effa}
 	\epsilon_{abs} =\frac{\text{\# Events Recorded}}{\text{\# Radiation Quanta Emitted}}
@@ -273,20 +283,57 @@ The absolute efficiency ($\epsilon_{abs}$) can be obtained by:
 	
 	\ A calibrated efficiency curve can be used to find the source strength of samples, scaled by the distance to the detector. 
 There are a few types of fits that are appropriate for efficiency curves. 
-Piecewise curves can work in certain applications. 
-A common efficiency curve is given as a function of N fitting parameters and a reference enrgy ($E_{0}$):
+Piece-wise curves can work in certain applications. % which ones?
+A common efficiency curve is given as a function of N fitting parameters and a reference energy ($E_{0}$) was used in this work:
 	
 	\begin{equation} \label{eq:effa1}
     ln(\epsilon_{abs}) =   \sum_{i=1}^{N} \; a_{i} (ln(\dfrac{E_{\gamma}}{E_{0}}))^{i-1}
 	\end{equation}
 	
+	\subsection{Neutron Flux Unfolding}
+	\ Foil activation experiments are a well established method for determining an incident neutron energy spectrum. % Cite?
+	The foils are exposed to a nearly equivalent
+	neutron flux, which serves to activate the foil samples through various nuclear reaction channels. Each of the reactions has a unique response function with respect to
+	the neutron flux. The nuclear data and activities of the foils can be used to unfold
+	the incident neutron energy spectrum.
+
+	\ A few examples of studied methods of unfolding matrix inversion, least-square spectral adjustment, and stochastic algorithms\cite{Reginatto2010}. 
+Matrix inversion can lead to non-physical results, such as negative fluxes \cite{Reginatto2010}. 
+Stochastic methods rely on random sampling to derive a best-fit or average over a group of reasonably well-fitting spectra\cite{Reginatto2010}. 
+	
+	\ The least-squares method minimizes the chi-square based on a guess spectrum, activation information, and nuclear data \cite{Perey1977}. 
+The least-squares method is also known as spectral adjustment and can incorporate more information, most notably the underlying nuclear data, into the determination of the resultant spectrum \cite{Perey1977}.
+The optimization is performed to minimize varying versions of the chi-square statistic among an energy group structure for the flux and nuclear data. 
+	
+	The general formulation of the least-squares method is derived from minimizing the activation results to the nuclear data and input spectrum\cite{Perey1977}. 
+The chi-square, $\chi^{2}$, is given as per degrees of freedom (n) as a function of of the uncertainty, activation rates, nuclear data, and measured results. 
+The chi-square formulation of the least-squares approach can be reduced if there is no time dependency of the neutron flux as:
+	
+	\begin{equation} \label{eq:LeastSq}
+	\dfrac{\chi^2}{n}= \dfrac{1}{n}\sum_{i=1}^{m} \; \dfrac{(\sum_{j=1}^{N} \Sigma_{i}(E_{j}) \;\Phi(E_{j})-\dfrac{A_{i}}{V_{Foil}})^{2}}{\sigma_{i}^{2}} \,\;\; 
+	\end{equation}
+	
+	Providing an initial spectrum is required for many unfolding methods. 
+The activities produced for the foils is often highly degenerate, where an infinite amount of spectra could provide the same end-point. 
+The initial spectrum allows for the insertion of more physics based results to have an impact on the overall result. 
+For neutron spectra, an initial guess spectrum is often created with a particle transport code or a deterministic solution. 
+
+	\ The foil activities are used with the underlying nuclear data to unfold the neutron spectrum using Pacific Northwest National Laboratory (PNNL) STAYSL. 
+STAYSL relies on least-squares spectral adjustment based on the chi-square of the measured activities to determine the incident neutron flux \cite{Greenwood2016}. 
+% cross ection library and group structure used?
+	
+	\section{Description of Work}
+	\ The selected foils for the experiment are summarized in Table \ref{tab:foils1}. 
+The foils were selected based on availability and usability in the nuclear data libraries used by STAYSL. % which one? Are these the only considerations?
+	
+% There sould be a table footnote for all of the 99% results where this was an assumption.
 	\begin{table*}[!]
 		\caption{Activation foils selected for irradiation in neutron pile.}
 		\label{tab:foils1}
 		\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|}
 	\hline
-		Foil (thickness) & Reaction & Half-life & \begin{tabular}[c]{@{}c@{}}Threshold\\   {[}MeV{]}\end{tabular} & \begin{tabular}[c]{@{}c@{}}Decay\\   Radiation {[}keV{]} \\ (Intensity)\end{tabular} & Purity {[}\%{]} & Mass {[}g{]} \\ \hline
+		Foil (thickness) & Reaction & Half-life & \begin{tabular}[c]{@{}c@{}}Threshold\\   {[}MeV{]}\end{tabular} & \begin{tabular}[c]{@{}c@{}}Decay\\   Radiation {[}keV{]} \\ (Intensity)\end{tabular} & Elemental Purity {[}\%{]} & Mass {[}g{]} \\ \hline
 		\multirow{2}{*}{In (0.005'' x2)} & In-115 (n,g) In-115m & 54.29 min & Thermal & 1293.56 (0.848) & 99.99 & 0.221(7) \\ \cline{2-7} 
 		& In-115 (n,n') In-116m & 4.49 hrs & 0.336 & 336.24 (0.459) & 99.99 & 0.221(7) \\ \hline
 		Al ($\sim$2mm x4) & Al-27 (n,a) Na-24 & 15.00 hrs & 3.25 & 1368.63 (0.9999) & 99 & 3.395(3) \\ \hline
@@ -298,41 +345,11 @@ A common efficiency curve is given as a function of N fitting parameters and a r
 	\end{tabular}
 	\end{table*}
 	
-	\subsection{Neutron Flux Unfolding}
-	\ Foil activation experiments are a well established method for determining an in-
-	cident neutron energy spectrum. The foil are activated under a nearly equivalent
-	neutron 
-ux, which serves to activate the foil samples through various nuclear reac-
-	tion channels. Each of the reactions has a unique response function with respect to
-	the neutron 
-ux. The nuclear data and activities of the foils can be used to unfold
-	the incident neutron energy spectrum.
+	\ The irradiation time in the neutron pile was planned to be ten days. 
+This time was chosen to build up the enough activity to be able to count the foils to 1\% statistics. 
+Specifically, Au-197 (n,2n) has a very long half-life, so approximately four half-lives of Au-196 were used for the irradiation time. 
+The expected post-irradiation activities is summarized in Table \ref{table:active}. 
 
-	\ A few examples of studied methods of unfolding matrix inversion, least-square spectral adjustment, and stochastic algorithms\cite{Reginatto2010}. 
-Matrix inversion can lead to non-physical results, such as negative fluxes \cite{Reginatto2010}. 
-Stochastic methods rely on random sampling to derive a best-fit or average over a group of reasonably well-fitting spectra\cite{Reginatto2010}. 
-	
-	\ The least-squares method minimizes the chi-square based on a guess spectrum, activation information, and nuclear data \cite{Perey1977}. 
-The least-squares method is also known as spectral adjustment and can incorperate more information, most notably the underlying nuclear data, into the determination of the resultant spectrum \cite{Perey1977}.
-The optimization is performed to minimize varying versions of the chi-square statistic among an energy group structure for the flux and nuclear data. 
-	
-	The general formulation of the least-squares method is derived from minimizing the activation results to the nuclear data and input spectrum\cite{Perey1977}. 
-The chi-square ($\chi^{2}$) is given as per degrees of freedom (n) as a function of of the uncertainty, activation rates, nuclear data, and measured results. 
-The chi-square formulation of the least-squares approach can be reduced if there is no time dependency of the nutron flux as:
-	
-	\begin{equation} \label{eq:LeastSq}
-	\dfrac{\chi^2}{n}= \dfrac{1}{n}\sum_{i=1}^{m} \; \dfrac{(\sum_{j=1}^{N} \Sigma_{i}(E_{j}) \;\Phi(E_{j})-\dfrac{A_{i}}{V_{Foil}})^{2}}{\sigma_{i}^{2}} \,\;\; 
-	\end{equation}
-	
-	Providing an initial spectrum is often required for the unfolding methods. 
-The activities produced for the foils is more often highly degenerate, where an infinite amount of spectra could provide the same end-point. 
-The initial spectrum allows for the insertion of more physics based results to have an impact on the overall result. 
-For neutron spectra, an initial guess spectrum is often created with a particle transport code or a deterministic solution. 
-
-	\ The foil activities are used with the underlying nuclear data to unfold the neutron spectrum using Pacific Northwest National Laboratory (PNNL) STAYSL. 
-STAYSL relies on least-squares spectral adjustment based on the chi-square of the measured activities to determine the incident neutron flux \cite{Greenwood2016}. 
-	
-	\section{Description of Work}
 
 	\subsection{Foil Selection / Irradiation Parameters}
 	\begin{table}[h!]
@@ -349,42 +366,31 @@ STAYSL relies on least-squares spectral adjustment based on the chi-square of th
 			All others & \textless 1.0 & \textless 1.0 & N/A \\ \hline
 		\end{tabular}
 	\end{table}
-	\ The selected foils for the experiment are summarized in Table \ref{tab:foils1}. 
-The foils were selected based on availability and usability in the nuclear data libraries used by STAYSL. 
-	
-	\ The irradiation time in the neutron pile was planned on ten days. 
-This time was chosen to build up the enough activity to measure the activities. Specifically, Au-197 (n,2n) has a very long half-life, so approximately four half-lives of Au-196 were used. 
-The expected activities post irradiation is summarized in Table \ref{table:active}. 
-	
-
 
 	\ The simulated environment in MCNP resulted in no feasible reactions in the high energy region, such as the (n,2n) threshold reactions. 
 The lack of pinning at high energy has a potential issue for the neutron flux unfolding, where there is no reaction pinning the high end of the neutron energy spectrum. 
 	
 	\subsection{HPGe Characterization}
 	
-	\ The HPGe detection system can be streamlined compared to a traditional nuclear counting experiment. 
-An ORTEC HPGe was connected to a DSA1000 which functions to replace many components necessary for a nuclear detection system. 
-The DSA1000 was connected to a computer, which has a multi-channel analyzer (MCA) data acquisition software (Genie 2000 was used for this experiment). 
-The bias voltage is set to 4,000 V. 
-The gain was set so that the dynamic range of gamma ray energies of interest is measurable on the MCA. 
-The course gain was set to 20 and the fine gain to 1.5. 
+	\ The HPGe detection system can be streamlined compared to a traditional nuclear counting experiment. % Huh? Delete?
+An ORTEC HPGe was connected to a DSA1000 which functions to replace many components necessary for a traditional nuclear detection system. 
+The DSA1000 was connected to a computer using the Genie 2000 multi-channel analyzer (MCA) data acquisition software. 
+The bias voltage is set to -4,000 V. %It was negative, right?
+The gain was set to 20 and the fine gain to 1.5, this allowed the dynamic range of the MCA to cover the gamma ray energies of interest. 
 	
 	\ The HPGe was characterized using a multi-nuclide source. 
 The isotopes gamma decay energies in the source range from 60 keV from Am-241 to 1836 keV from Y-88, which covers the energy range of interest for the foil analysis. 
-	
-	\ The HPGe energy calibration utilized a linear relationship to map channel to energy. 
-The channel to energy calibration is shown in Figure \ref{fig:ecal}. 
-The slope of the line is linear, which was expected. 
+The resulting energy calibration utilized a linear relationship to map channel to energy as shown in Figure \ref{fig:ecal}. 
 	
 	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{Figures/ECal.png}
-		\caption{HPGE energy calibration curve using a multinuclide source.}
+		\caption{HPGE energy calibration curve obtained using a multi-nuclide source.}
 		\label{fig:ecal}
 	\end{figure}
 	
 	\ The efficiency calibration was conducted at 10 cm and 5 cm from the base of the HPGe. 
 The solid angle for a quarter inch radius foil at the 10 cm range is 0.66 radians, which is notably less than the idealized point source simplification of 0.79 radians. 
+% This math doesn't seem right.  I would expect them to be much closer.
 	
 	\ An malfunction in the HPGe occurred prior to the completion of collecting data for the 5 cm case. 
 The error prevented additional data acquisition for the building 470 pile portion of this experiment.
@@ -392,24 +398,22 @@ The error prevented additional data acquisition for the building 470 pile portio
 	\subsection{NIF Snout Experiment Activities}
 	  
 	\ The HPGe analyzed dataset used for the NIF experiment was provided from Lawrence Livermore National Lab (LLNL). 
-The counts per channel files were also provided. 
-A validation test was performed with Los Alamos National Laboratory's Peak Easy on the pinhole results for the indium foil. 
+The counts per channel data were also provided. 
+A validation test was performed with Los Alamos National Laboratory's Peak Easy on the pinhole results for the indium foil. % cite Peak Easy
 The main In-115m peak at 336 keV is shown in Figure \ref{fig:peakez}. 
 The foils were 1 mm thick with the exception of the gold foils, which were 0.1 mm thick. 
-The activities presented are large enough for accurate counting in an HPGe. 
 	
 	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{Figures/PeakEZ.png}
-		\caption{336 keV In-115m peak identification}
+		\caption{336 keV In-115m peak counts determined using Peak Easy.}
 		\label{fig:peakez}
 	\end{figure}
-
+% The background subtraction looks terrible.  It probably doesn't affect the answer, but this can be shown better.  Otherwise, it is an easy target for a reviewer.
 	\ There was general agreement between the counts for In-115m and In-116m. 
 The counts identified by LLNL resulted in 361,000 $+/-$ 0.23\% for In-115m and 1,383 $+/-$ 2.89\% for In-116m. 
 The calculated results from Peak Easy determined 364,000 $+/-$ 0.38\% for In-115m and 1,402 $+/-$ 3.8\% for In-116m. 
-There is slight disagreement in the uncertainties. 
-It is expected that multiple peaks are used to determine the overall uncertainty. 
-A summary of the foils and activations used for the snout experiment is given in Table \ref{Table:NIF}. The value of ``sig-phi'' was used in STAYSL.
+It is expected that multiple peaks were used in the LLNL results thereby lowering the overall uncertainty.
+A summary of the foils and reactions used for the snout experiment is given in Table \ref{Table:NIF}. The value of ``sig-phi'' was a STAYSL. calculated reaction rate used for the unfolding of the source spectrum.
 	
 	\begin{table}[]
 		\caption{Activation information for the NIF experiment foils.}
@@ -446,35 +450,38 @@ A summary of the foils and activations used for the snout experiment is given in
 	
 	\subsection{Unfolding NIF Experiment with STAYSL}
 	\ STAYSL has several modules that are used to unfold the neutron spectrum from the calculated activities. 
-The main components used in this analysis are SHIELD, SIG PHI Calculator, and PNNL STAYSL. 
+The main components used in this analysis are SHIELD, SIG-PHI Calculator, and PNNL STAYSL. 
 The Beam Correction factor was not used because the NIF irradiation time is much less than the half-lives of the reaction products. 
 	 
-	\ A complete walkthrough of the analysis is available on Github \cite{Me}. 
-SHIELD was used to generate energy dependent neutron self-shielding factors for non-threshold reactions, which feeds into STAYSL. 
+	\ A complete walk-through of the analysis is available on Github \cite{Me}. 
+SHIELD was used to generate energy dependent neutron self-shielding factors for non-threshold reactions. 
 SHIELD is not used on high energy threshold reactions because there is negligible shielding. 
 	
-	\ The SIG PHI Calculator was used to consolidate all of the reaction information. Additionally, this module generates gamma-ray shielding factors. 
-The input was generated from this information and the nuclei production information. 
+	\ The SIG-PHI Calculator was used to consolidate all of the reaction information. Additionally, this module generates gamma-ray shielding factors. 
+The input was generated from this information and the nuclei production information. % This sentence is unclear 
 	
 	\ STAYSL requires a starting guess spectrum. 
-For this work, the NIF source was binned into the 140 group STAYSL structure. 
-The flux was scaled by the spherical divergence to the foil locations. 
+For this work, the NIF source was binned into the 140 group STAYSL structure, and the flux was scaled by the spherical divergence to the foil locations. 
 	
-	\ STAYSL was completed for the pinhole, basket, and kinematic base for two cases. 
-First, a guess spectrum  of the NIF source was used with 100 percent flux uncertainty up to 13 MeV. 
-The flux uncertainty from 13-15 MeV was set to five percent for the pinhole based on the reaction cross-section and threshold reactions expected results. 
+	\ STAYSL was run for the pinhole, basket, and kinematic base for two cases. 
+First, a guess spectrum  of the NIF source % which nif source?  Figure 5?
+was used with 100 percent flux uncertainty up to 13 MeV. % Why? Not clear to the reader
+The flux uncertainty from 13-15 MeV was set to five percent for the pinhole based on the reaction cross-section and threshold reactions expected results. % Not following
 Less was known about the resultant spectra for the kinematic base and basket, so the 13-15 MeV flux uncertainty was set to 100 percent. 
-STAYSL was ran iteratively using STAYSL.py until the $\chi^{2}$ changed by less than 0.1. 
-The product spectrum is used as the guess spectrum for subsequent iterations. The goal to generate a resultant spectrum that matched the nuclear data and activity. 
-The flux uncertainty was not updated until the solution converged based on the $\chi^{2}$. 
-The degrees of freedom ($\nu$) for the pinhole is 4, because there are 5 foils. The other sets have 5 degrees of freedom. 
+STAYSL was ran iteratively using STAYSL.py %What is this; it was never introduced
+until the $\chi^{2}$ changed by less than 0.1. 
+The product spectrum is used as the guess spectrum for subsequent iterations. 
+The flux uncertainty was not updated until the solution converged based on the $\chi^{2}$.
+% If memory serves me, I found worse results when I did not update the uncertainty 
+The degrees of freedom ($\nu$) for the pinhole is 4, because there are 5 foils. The other sets have 5 degrees of freedom.  % This sentence is randomly placed.
 	
 	The second method of iteratively solving started with a flat guess spectrum. 
 A flat guess spectrum utilizes no a priori information about the flux, so it is a good indicator if the result matches up with the NIF guess spectrum iterations. 
 The flat guess spectrum started with 100 percent uncertainty in all energy groups. 
-For the NIF experiment, the temporal aspect of the flux is averaged out, so the values presented by STAYSL are really the neutron fluence. 
 	
 	\section{Results}
+% I didn't do a ton here since there are some unanswered questions and it seems the results may change.  As of now, these are highly suspect, so it would be interesting to see when using the guess spectrum from a simualtion.  That guess spectrum should be added to the plots.	
+	
 	\begin{figure}[t!]
 		\includegraphics[width=\linewidth]{Figures/PinBothLog.png}
 		\caption{Unfolded Spectrum for pinhole starting with NIF and flat guess.}
@@ -510,17 +517,16 @@ The basket results are truncated to a minimum fluence of 1 \text{$n-cm^{-2}$}.
 	\end{table}
 	
 	\ The results show good generally good agreement between the NIF guess and flat spectrum. 
-No modeling information was available to use as a guess spectrum. 
-The $\chi^{2}$ values can be iterated to shrink the value; however, there is not a reason to do so past when the iterator stops.
-Non-physical results might be created. 
+No modeling information was available to use as a guess spectrum. % This should be used in the methods section where you were describing how you got the guess spectrum
+The $\chi^{2}$ values can be iterated to shrink the value; however, care must be exercised in how many iterations to perform as non-physical results might be created. 
 	
-	\ The pinhole results in Figure \ref{fig:pin} show that there is a steep dropoff in flux as energy decreases, which was not expected. 
+	\ The pinhole results in Figure \ref{fig:pin} show that there is a steep decrease in flux as energy decreases, which was not expected.  %Why not?  I think you mean the deep minimum was not expected.
 The high energy bins at 13-15 MeV have very good agreement with expected values; however, the rest of the spectra was unexpected to some extent. 
-The large epithermal peak energy is approximately 800 keV; which is approximately the first excited state in Al-27 (843 keV). 
+The large epithermal peak energy is approximately 800 keV; which is approximately the first excited state in Al-27 (843 keV).
 There is no physical basis for the near complete removal of neutrons between 1 and 10 MeV, while the source distribution indicates there should be a large portion present. 
 The peak is shaped like an neutron evaporation spectrum. Past the epithermal peak, there is a decaying thermal tail. 
 Starting from a flat spectrum produced nearly identical results, so it would have been ideal to have a threshold reaction near 1 MeV. 
-The p-values for the pinhole indicate the result is very likely in both cases. 
+The p-values for the pinhole indicate the result is very likely in both cases. % Is this true? P < 0.05 or P > 0.95 being the goal?  A quick explanation of a good P value and its meaning is needed.
 Again, there is some degeneracy in the solution. 
 	
 	\ The basket results are similar to the pinhole with some key differences. 
