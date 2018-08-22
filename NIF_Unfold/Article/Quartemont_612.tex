@@ -313,6 +313,29 @@ The chi-square formulation of the least-squares approach can be reduced if there
 	\dfrac{\chi^2}{n}= \dfrac{1}{n}\sum_{i=1}^{m} \; \dfrac{(\sum_{j=1}^{N} \Sigma_{i}(E_{j}) \;\Phi(E_{j})-\dfrac{A_{i}}{V_{Foil}})^{2}}{\sigma_{i}^{2}} \,\;\; 
 	\end{equation}
 	
+	\ Several formulations of the $\chi^{2}$ statistic exist. STAYSL utilizes activity information, $A^{\circ}$, a neutron flux and nuclear data matrix, P, and covariance matrices. STAYSL incorporates covariance information, $N_{P}$, which is the covariance matrix from the flux and nuclear data. The activity covariance is a matrix given by $N_{A^{\circ}}$. STAYSL minimizes the $\chi^{2}$ based on the activity information, $\bar{A}$, and neutron flux and nuclear data parameters, $\bar{{P}$. The $\chi^{2}$ statistic utilzied in STAYSL is given by \cite{Perey1977}. 
+	
+		\begin{equation} \label{eq:LeastSq}
+	\chi^{2} = \begin{bmatrix}
+	P-\bar{P} \\
+	A^{\circ}-\bar{A}    
+	\end{bmatrix}^{\dagger}
+	\space 
+	\bullet
+	\space 
+	\begin{bmatrix}
+	N_{P}  &  0      \\
+	0  &  N_{A^{\circ}}     
+	\end{bmatrix}^{-1}
+	\space
+	\bullet
+	\space
+	\begin{bmatrix}
+	P-\bar{P} \\
+	A^{\circ}-\bar{A}    
+	\end{bmatrix}
+	\end{equation} 
+	
 	Providing an initial spectrum is required for many unfolding methods. 
 The activities produced for the foils is often highly degenerate, where an infinite amount of spectra could provide the same end-point. 
 The initial spectrum allows for the insertion of more physics based results to have an impact on the overall result. 

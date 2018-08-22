@@ -17,6 +17,6 @@ Data.columns = ['eBins', 'flux', 'sigma']
 Histo=Histogram()
 Histo.build_histo(Data['eBins'].tolist(), Data['sigma'].tolist(), 
                          uncert= Data['flux'].tolist(), edgeLoc='up')
-plt=Histo.plot(xMin=1E-9,xMax=13, logX=True, logY=True, legendLoc=1, includeMarkers=False,
-              xLabel='\\textbf{Energy [MeV]}', yLabel='\\textbf{ Flux [n cm$^{-2}$  s$^{-1}$]}',savePath='Pile.png')
+plt=Histo.plot(xMin=1E-9,xMax=13,yMax=500, logX=False, logY=False, legendLoc=1, includeMarkers=False,
+              xLabel='\\textbf{Energy [MeV]}', yLabel='\\textbf{ Flux [n cm$^{-2}$  s$^{-1}$]}',savePath='linPile.png')
 

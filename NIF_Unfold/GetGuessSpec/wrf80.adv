@@ -1,0 +1,19 @@
+method                       dx
+dx_forward                   True
+outputs                      silo response
+
+mcnp_input                   wrf80.i
+mcnp_tallies                 24
+
+anisn_library                27n19g
+
+denovo_first_group           41
+
+mesh_x      -1800.000  -10.0000   10.00000   1800.000
+mesh_x_ints                    1          10          1
+
+mesh_y      -2000.000  -10.0000   8.500000   2000.000
+mesh_y_ints                    1          10          1
+
+mesh_z       -2400.00  0.000000   130.0000   1500.000
+mesh_z_ints                    1          10          1
